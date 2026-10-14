@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { Camera, Send, Play } from "lucide-react"
+import { Camera, Send, Play, Facebook } from "lucide-react"
 import { Container } from "@/components/site/section"
 import { Logo } from "@/components/site/logo"
 import { RegionSelector } from "@/components/site/region-selector"
@@ -53,6 +53,7 @@ export function Footer() {
                 { icon: Camera, label: "Instagram" },
                 { icon: Send, label: "X / Twitter" },
                 { icon: Play, label: "YouTube" },
+                { icon: Facebook, label: "Facebook" },
               ].map(({ icon: Icon, label }) => (
                 <a
                   key={label}
