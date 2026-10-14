@@ -19,6 +19,9 @@
       }
     ],
     "paths": {
+      "@/components/site/*": ["./*"],
+      "@/components/commerce/*": ["./*"],
+      "@/lib/*": ["./*"],
       "@/*": ["./*"]
     }
   },
