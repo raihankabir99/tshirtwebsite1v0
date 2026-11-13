@@ -4,6 +4,23 @@
 // across many product types. Products reference the design they belong to.
 // -----------------------------------------------------------------------------
 
+import type { StaticImageData } from 'next/image'
+import image0 from '../design-lion-art.png'
+import image1 from '../nordic-tee.png'
+import image2 from '../solar-sweatshirt.png'
+import image3 from '../lion-cap.png'
+import image4 from '../lion-tee.png'
+import image5 from '../lion-hoodie.png'
+import image6 from '../lion-tote.png'
+import image7 from '../lion-mug.png'
+import image8 from '../lion-phonecase.png'
+import image9 from '../lion-poster.png'
+import image10 from '../lion-cushion.png'
+import image11 from '../blog-style.png'
+import image12 from '../blog-design.png'
+import image13 from '../blog-guide.png'
+import image14 from '../collection-minimal.png'
+
 export type ProductType = {
   slug: string
   name: string
@@ -36,8 +53,8 @@ export type Product = {
   productType: string // display, e.g. "T-Shirt"
   price: number
   compareAt?: number
-  image: string
-  hoverImage?: string
+  image: string | StaticImageData
+  hoverImage?: string | StaticImageData
   colors: string[] // hex swatches
   badge?: Badge
   rating: number
@@ -48,7 +65,7 @@ export type Design = {
   slug: string
   name: string
   tagline: string
-  image: string // the standalone art / lead product
+  image: string | StaticImageData // the standalone art / lead product
   productCount: number
   availableOn: string[] // product type display names
   swatch: string[]
@@ -61,7 +78,7 @@ export const DESIGNS: Design[] = [
     slug: 'midnight-lion',
     name: 'Midnight Lion',
     tagline: 'Geometric line-art strength.',
-    image: '/images/design-lion-art.png',
+    image: image0,
     productCount: 13,
     availableOn: ['T-Shirt', 'Hoodie', 'Tote', 'Mug', 'Phone Case'],
     swatch: ['#0a0a0a', '#c7a24c', '#e8e4dc'],
@@ -70,7 +87,7 @@ export const DESIGNS: Design[] = [
     slug: 'nordic-lines',
     name: 'Nordic Lines',
     tagline: 'A single continuous horizon.',
-    image: '/images/nordic-tee.png',
+    image: image1,
     productCount: 11,
     availableOn: ['T-Shirt', 'Sweatshirt', 'Poster', 'Tote'],
     swatch: ['#e8e4dc', '#0a0a0a', '#9a9488'],
@@ -79,7 +96,7 @@ export const DESIGNS: Design[] = [
     slug: 'solar-horizon',
     name: 'Solar Horizon',
     tagline: 'Golden hour, distilled.',
-    image: '/images/solar-sweatshirt.png',
+    image: image2,
     productCount: 9,
     availableOn: ['Sweatshirt', 'T-Shirt', 'Mug', 'Cushion'],
     swatch: ['#d8c7a2', '#c7a24c', '#0a0a0a'],
@@ -88,7 +105,7 @@ export const DESIGNS: Design[] = [
     slug: 'monogram-mark',
     name: 'Monogram Mark',
     tagline: 'The house signature.',
-    image: '/images/lion-cap.png',
+    image: image3,
     productCount: 8,
     availableOn: ['Cap', 'Hoodie', 'Tote', 'Notebook'],
     swatch: ['#0a0a0a', '#c7a24c'],
@@ -98,14 +115,14 @@ export const DESIGNS: Design[] = [
 // ---- Midnight Lion across product types (signature "one design" section) -----
 
 export const LION_EXPRESSIONS = [
-  { type: 'T-Shirt', image: '/images/lion-tee.png', price: 29.99 },
-  { type: 'Hoodie', image: '/images/lion-hoodie.png', price: 64.99 },
-  { type: 'Tote Bag', image: '/images/lion-tote.png', price: 24.99 },
-  { type: 'Mug', image: '/images/lion-mug.png', price: 18.99 },
-  { type: 'Phone Case', image: '/images/lion-phonecase.png', price: 22.99 },
-  { type: 'Poster', image: '/images/lion-poster.png', price: 34.99 },
-  { type: 'Cap', image: '/images/lion-cap.png', price: 27.99 },
-  { type: 'Cushion', image: '/images/lion-cushion.png', price: 32.99 },
+  { type: 'T-Shirt', image: image4, price: 29.99 },
+  { type: 'Hoodie', image: image5, price: 64.99 },
+  { type: 'Tote Bag', image: image6, price: 24.99 },
+  { type: 'Mug', image: image7, price: 18.99 },
+  { type: 'Phone Case', image: image8, price: 22.99 },
+  { type: 'Poster', image: image9, price: 34.99 },
+  { type: 'Cap', image: image3, price: 27.99 },
+  { type: 'Cushion', image: image10, price: 32.99 },
 ]
 
 // ---- Products ----------------------------------------------------------------
@@ -118,8 +135,8 @@ export const NEW_DROPS: Product[] = [
     designSlug: 'midnight-lion',
     productType: 'T-Shirt',
     price: 29.99,
-    image: '/images/lion-tee.png',
-    hoverImage: '/images/lion-hoodie.png',
+    image: image4,
+    hoverImage: image5,
     colors: ['#0a0a0a', '#e8e4dc', '#3a3a3a'],
     badge: 'New',
     rating: 4.9,
@@ -132,7 +149,7 @@ export const NEW_DROPS: Product[] = [
     designSlug: 'nordic-lines',
     productType: 'T-Shirt',
     price: 29.99,
-    image: '/images/nordic-tee.png',
+    image: image1,
     colors: ['#e8e4dc', '#0a0a0a'],
     badge: 'New',
     rating: 4.8,
@@ -146,7 +163,7 @@ export const NEW_DROPS: Product[] = [
     productType: 'Sweatshirt',
     price: 54.99,
     compareAt: 64.99,
-    image: '/images/solar-sweatshirt.png',
+    image: image2,
     colors: ['#d8c7a2', '#0a0a0a'],
     badge: 'Sale',
     rating: 4.7,
@@ -159,7 +176,7 @@ export const NEW_DROPS: Product[] = [
     designSlug: 'midnight-lion',
     productType: 'Tote Bag',
     price: 24.99,
-    image: '/images/lion-tote.png',
+    image: image6,
     colors: ['#e8e4dc', '#0a0a0a'],
     badge: 'Limited',
     rating: 4.9,
@@ -175,8 +192,8 @@ export const BEST_SELLERS: Product[] = [
     designSlug: 'midnight-lion',
     productType: 'Hoodie',
     price: 64.99,
-    image: '/images/lion-hoodie.png',
-    hoverImage: '/images/lion-tee.png',
+    image: image5,
+    hoverImage: image4,
     colors: ['#0a0a0a', '#3a3a3a', '#e8e4dc'],
     badge: 'Bestseller',
     rating: 5.0,
@@ -189,7 +206,7 @@ export const BEST_SELLERS: Product[] = [
     designSlug: 'midnight-lion',
     productType: 'Mug',
     price: 18.99,
-    image: '/images/lion-mug.png',
+    image: image7,
     colors: ['#0a0a0a'],
     badge: 'Bestseller',
     rating: 4.8,
@@ -202,7 +219,7 @@ export const BEST_SELLERS: Product[] = [
     designSlug: 'midnight-lion',
     productType: 'Poster',
     price: 34.99,
-    image: '/images/lion-poster.png',
+    image: image9,
     colors: ['#0a0a0a', '#c7a24c'],
     badge: 'Bestseller',
     rating: 4.9,
@@ -215,7 +232,7 @@ export const BEST_SELLERS: Product[] = [
     designSlug: 'midnight-lion',
     productType: 'Phone Case',
     price: 22.99,
-    image: '/images/lion-phonecase.png',
+    image: image8,
     colors: ['#0a0a0a'],
     badge: 'Bestseller',
     rating: 4.7,
@@ -226,15 +243,15 @@ export const BEST_SELLERS: Product[] = [
 // ---- Editorial: shop by product ----------------------------------------------
 
 export const SHOP_BY_PRODUCT = [
-  { name: 'T-Shirts', image: '/images/lion-tee.png', slug: 't-shirts' },
-  { name: 'Hoodies', image: '/images/lion-hoodie.png', slug: 'hoodies' },
-  { name: 'Sweatshirts', image: '/images/solar-sweatshirt.png', slug: 'sweatshirts' },
-  { name: 'Tote Bags', image: '/images/lion-tote.png', slug: 'tote-bags' },
-  { name: 'Mugs', image: '/images/lion-mug.png', slug: 'mugs' },
-  { name: 'Phone Cases', image: '/images/lion-phonecase.png', slug: 'phone-cases' },
-  { name: 'Caps', image: '/images/lion-cap.png', slug: 'caps' },
-  { name: 'Posters', image: '/images/lion-poster.png', slug: 'posters' },
-  { name: 'Cushions', image: '/images/lion-cushion.png', slug: 'cushions' },
+  { name: 'T-Shirts', image: image4, slug: 't-shirts' },
+  { name: 'Hoodies', image: image5, slug: 'hoodies' },
+  { name: 'Sweatshirts', image: image2, slug: 'sweatshirts' },
+  { name: 'Tote Bags', image: image6, slug: 'tote-bags' },
+  { name: 'Mugs', image: image7, slug: 'mugs' },
+  { name: 'Phone Cases', image: image8, slug: 'phone-cases' },
+  { name: 'Caps', image: image3, slug: 'caps' },
+  { name: 'Posters', image: image9, slug: 'posters' },
+  { name: 'Cushions', image: image10, slug: 'cushions' },
 ]
 
 // ---- Blog --------------------------------------------------------------------
@@ -246,7 +263,7 @@ export const ARTICLES = [
     title: 'How to Style a Minimal Graphic T-Shirt',
     excerpt:
       'Three quiet ways to build an outfit around a single considered graphic — without shouting.',
-    image: '/images/blog-style.png',
+    image: image11,
     date: 'May 14, 2025',
   },
   {
@@ -255,7 +272,7 @@ export const ARTICLES = [
     title: 'The Story Behind Midnight Lion',
     excerpt:
       'From a single continuous line to a house signature — the making of our most-loved design.',
-    image: '/images/blog-design.png',
+    image: image12,
     date: 'May 02, 2025',
   },
   {
@@ -264,7 +281,7 @@ export const ARTICLES = [
     title: 'How to Choose the Right Hoodie Fit',
     excerpt:
       'Boxy, regular or relaxed — a short guide to finding the weight and drape that suits you.',
-    image: '/images/blog-guide.png',
+    image: image13,
     date: 'Apr 21, 2025',
   },
 ]
@@ -353,7 +370,7 @@ export function productTypeBySlug(slug: string): ProductType | undefined {
 
 // A design expressed across many product types (used on design detail +
 // product detail "switch product" UX). Falls back to the Lion expression set.
-export type Expression = { type: string; slug: string; image: string; price: number }
+export type Expression = { type: string; slug: string; image: string | StaticImageData; price: number }
 
 const TYPE_SLUG: Record<string, string> = {
   'T-Shirt': 't-shirts',
@@ -403,7 +420,7 @@ export type Collection = {
   slug: string
   name: string
   tagline: string
-  image: string
+  image: string | StaticImageData
   count: number
 }
 
@@ -412,56 +429,56 @@ export const COLLECTION_DETAILS: Collection[] = [
     slug: 'new-collection',
     name: 'New Collection',
     tagline: 'The latest chapter from the studio.',
-    image: '/images/collection-minimal.png',
+    image: image14,
     count: 24,
   },
   {
     slug: 'summer',
     name: 'Summer',
     tagline: 'Lightweight pieces for warm days.',
-    image: '/images/nordic-tee.png',
+    image: image1,
     count: 18,
   },
   {
     slug: 'minimal',
     name: 'Minimal',
     tagline: 'Quiet by design. Nothing shouting.',
-    image: '/images/collection-minimal.png',
+    image: image14,
     count: 21,
   },
   {
     slug: 'streetwear',
     name: 'Streetwear',
     tagline: 'Considered graphics with an edge.',
-    image: '/images/lion-hoodie.png',
+    image: image5,
     count: 16,
   },
   {
     slug: 'art',
     name: 'Art',
     tagline: 'Original artwork, wearable.',
-    image: '/images/lion-poster.png',
+    image: image9,
     count: 14,
   },
   {
     slug: 'quotes',
     name: 'Quotes',
     tagline: 'Words worth wearing.',
-    image: '/images/solar-sweatshirt.png',
+    image: image2,
     count: 11,
   },
   {
     slug: 'gift',
     name: 'Gift',
     tagline: 'Considered pieces for someone special.',
-    image: '/images/lion-mug.png',
+    image: image7,
     count: 20,
   },
   {
     slug: 'seasonal',
     name: 'Seasonal',
     tagline: 'Limited edits, released in moments.',
-    image: '/images/lion-cushion.png',
+    image: image10,
     count: 9,
   },
 ]
