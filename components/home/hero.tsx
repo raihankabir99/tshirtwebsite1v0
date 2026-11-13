@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import heroImage from '../../hero.png'
 import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
 import { BrandButton } from '@/components/brand/brand-button'
@@ -8,7 +9,7 @@ export function Hero() {
   return (
     <section className="relative flex min-h-[92svh] items-end overflow-hidden bg-background">
       <Image
-        src="/images/hero.png"
+        src={heroImage}
         alt="Model wearing the Midnight Lion design on a premium black t-shirt"
         fill
         priority
